@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: equity-service-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: false
+
+  h2:
+    console:
+      enabled: false
+
+  sql:
+    init:
+      mode: never
+
+jwt:
+  secret: dGVzdFNlY3JldEtleUZvckpXVFRva2VuVGVzdGluZ1B1cnBvc2VPbmx5MTIzNA==
+  expiration: 3600000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,info
+
+logging:
+  level:
+    com.equity.equityservice: DEBUG
